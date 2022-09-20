@@ -6,7 +6,7 @@ export const axiosInstance = axios.create({
   method: "POST",
 });
 
-export const authAPI = axios.create({
+export const postAPI = axios.create({
   baseURL: `${config.serverUrl}/api`,
   method: "POST",
 });

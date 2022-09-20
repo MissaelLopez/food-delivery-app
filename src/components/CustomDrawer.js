@@ -3,8 +3,11 @@ import {
   DrawerItemList,
 } from "@react-navigation/drawer";
 import { Image, Text, View } from "react-native";
+import { useSelector } from "react-redux";
 
 export const CustomDrawer = (props) => {
+  const { user } = useSelector((state) => state.user);
+
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView
@@ -21,7 +24,7 @@ export const CustomDrawer = (props) => {
               marginBottom: 10,
             }}
           />
-          <Text style={{ color: "#000", fontSize: 18 }}>Missael López</Text>
+          <Text style={{ color: "#000", fontSize: 18 }}>{user.email}</Text>
         </View>
         <View style={{ flex: 1, backgroundColor: "#fff" }}>
           <DrawerItemList {...props} />

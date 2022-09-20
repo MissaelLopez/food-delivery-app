@@ -1,7 +1,7 @@
 import { View, Text, TextInput } from "react-native";
 import { ComponentsStyles as styles } from "../styles";
 
-const InputLabel = (props) => {
+export const InputLabel = (props) => {
   return (
     <View>
       <Text style={styles.label}>{props.label}</Text>
@@ -9,5 +9,3 @@ const InputLabel = (props) => {
     </View>
   );
 };
-
-export default InputLabel;

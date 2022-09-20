@@ -1,14 +1,13 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { View, Image, Alert } from "react-native";
 import { LoginStyles as styles } from "../styles";
-import { Subtitle, Title } from "../components";
-import InputLabel from "../components/InputLabel";
-import Button from "../components/Button";
-import Link from "../components/Link";
-import { authAPI } from "../api/axiosInstance";
-import { useState } from "react";
-import axios from "axios";
+import { Subtitle, Title, InputLabel, Button, Link } from "../components";
+import { postAPI } from "../api/axiosInstance";
+import { setAuthUser } from "../store/slices/user/userSlice";
 
 export const Login = ({ navigation }) => {
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -27,12 +26,22 @@ export const Login = ({ navigation }) => {
     }
 
     try {
-      const { data, status } = await authAPI.post("/auth", {
+      const { data, status } = await postAPI.post("/auth", {
         email: user.email,
         password: user.password,
       });
 
+      console.log(data);
+
       if (status === 200) {
+        const userData = {
+          email: user.email,
+          id: data.user,
+          token: data.token,
+          type: data.type,
+        };
+
+        dispatch(setAuthUser(userData));
         navigation.navigate("App");
       }
     } catch (error) {
