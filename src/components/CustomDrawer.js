@@ -25,6 +25,7 @@ export const CustomDrawer = (props) => {
             }}
           />
           <Text style={{ color: "#000", fontSize: 18 }}>{user.email}</Text>
+          <Text style={{ color: "#aaa", fontSize: 18 }}>{user.type}</Text>
         </View>
         <View style={{ flex: 1, backgroundColor: "#fff" }}>
           <DrawerItemList {...props} />

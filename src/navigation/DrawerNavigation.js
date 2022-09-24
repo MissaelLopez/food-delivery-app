@@ -63,19 +63,6 @@ export const DrawerNavigation = ({ navigation }) => {
               ),
             }}
           />
-          <Drawer.Screen
-            name="Restaurants"
-            component={Home}
-            options={{
-              drawerIcon: ({ color }) => (
-                <Ionicons
-                  name="ios-restaurant-outline"
-                  size={22}
-                  color={color}
-                />
-              ),
-            }}
-          />
         </>
       )}
     </Drawer.Navigator>

@@ -1,10 +1,19 @@
 import { View, Text } from "react-native";
-import React from "react";
+import { useSelector } from "react-redux";
 
 export const Home = () => {
+  const { foods } = useSelector((state) => state.food);
+
   return (
     <View>
-      <Text>Home</Text>
+      {foods.map((food) => (
+        <>
+          <Text>{food.name}</Text>
+          <Text>{food.description}</Text>
+          <Text>$ {food.price}</Text>
+          <Text>------------------------------</Text>
+        </>
+      ))}
     </View>
   );
 };

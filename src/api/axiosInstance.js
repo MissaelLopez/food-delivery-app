@@ -10,3 +10,8 @@ export const postAPI = axios.create({
   baseURL: `${config.serverUrl}/api`,
   method: "POST",
 });
+
+export const getAPI = axios.create({
+  baseURL: `${config.serverUrl}/api`,
+  method: "GET",
+});

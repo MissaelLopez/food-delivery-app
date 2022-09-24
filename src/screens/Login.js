@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { View, Image, Alert } from "react-native";
 import { LoginStyles as styles } from "../styles";
 import { Subtitle, Title, InputLabel, Button, Link } from "../components";
-import { postAPI } from "../api/axiosInstance";
-import { setAuthUser } from "../store/slices/user/userSlice";
+import { getAPI, postAPI } from "../api/axiosInstance";
+import { setAuthUser } from "../store/slices/user";
+import { setFoods } from "../store/slices/food";
 
 export const Login = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -15,6 +16,22 @@ export const Login = ({ navigation }) => {
 
   const navigate = (to) => {
     navigation.navigate(to);
+  };
+
+  const getRestaurantData = async (token, id) => {
+    try {
+      const { data, status } = await getAPI.get(`/restaurants/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const foods = data.foods;
+
+      if (status === 200) {
+        dispatch(setFoods(foods));
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
   };
 
   const onLogin = async () => {
@@ -31,18 +48,22 @@ export const Login = ({ navigation }) => {
         password: user.password,
       });
 
-      console.log(data);
-
       if (status === 200) {
         const userData = {
           email: user.email,
-          id: data.user,
+          id: data.id,
+          user: data.user,
           token: data.token,
           type: data.type,
         };
 
         dispatch(setAuthUser(userData));
-        navigation.navigate("App");
+
+        if (data.type === "restaurant") {
+          getRestaurantData(userData.token, userData.user);
+        }
+
+        navigate("App");
       }
     } catch (error) {
       Alert.alert(error.response.data.msg);
