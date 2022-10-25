@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { CustomDrawer } from "../components";
-import { Home } from "../screens";
+import { Home, Orders } from "../screens";
 
 const Drawer = createDrawerNavigator();
 
@@ -51,8 +51,8 @@ export const DrawerNavigation = ({ navigation }) => {
       {user.type === "restaurant" && (
         <>
           <Drawer.Screen
-            name="Mis Platillos"
-            component={Home}
+            name="Pedidos"
+            component={Orders}
             options={{
               drawerIcon: ({ color }) => (
                 <Ionicons
