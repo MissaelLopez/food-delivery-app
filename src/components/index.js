@@ -7,3 +7,5 @@ export * from "./CustomDrawer";
 export * from "./ContainerCards";
 export * from "./OrderCard";
 export * from "./Badge";
+export * from "./Loader";
+export * from "./SearchInput";
