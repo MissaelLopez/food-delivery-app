@@ -87,4 +87,13 @@ export const ComponentsStyles = StyleSheet.create({
     color: "#fff",
     fontSize: 12,
   },
+  searchInput: {
+    margin: 20,
+    flexDirection: "row",
+    borderColor: "#C6C6C6",
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+  },
 });

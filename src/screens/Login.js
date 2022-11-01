@@ -51,7 +51,7 @@ export const Login = ({ navigation }) => {
       if (status === 200) {
         const userData = {
           email: user.email,
-          id: data.id,
+          id: data.userId,
           user: data.user,
           token: data.token,
           type: data.type,
