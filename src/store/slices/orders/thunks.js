@@ -6,7 +6,7 @@ export const getOrders = (restaurantId) => {
   return async (dispatch) => {
     dispatch(startLoadingOrders());
 
-    const starCountRef = ref(db, `restaurants/${restaurantId}/orders`);
+    const starCountRef = ref(db, `db/restaurants/${restaurantId}/orders`);
     onValue(starCountRef, (snapshot) => {
       const orders = snapshot.val();
       const arr = Object.values(orders);

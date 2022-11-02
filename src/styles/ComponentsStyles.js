@@ -71,6 +71,8 @@ export const ComponentsStyles = StyleSheet.create({
     width: 80,
     borderRadius: 40,
     resizeMode: "cover",
+    borderWidth: 1,
+    borderColor: "#f16667",
   },
   orderCardButtons: {
     flexDirection: "row",
