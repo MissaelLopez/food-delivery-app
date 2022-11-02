@@ -18,20 +18,15 @@ export const Orders = ({ navigation }) => {
   };
 
   const handleChange = (text) => {
+    const foods = orders.map((order) => {
+      return order.foods;
+    });
+
     const searchText = formatText(text);
     const tmpArray = [];
-    const limit = orders.length;
+    const limit = foods.length;
 
-    for (let i = 0; i < limit; i++) {
-      const names = formatText(orders[i].name);
-      const patt = new RegExp(searchText);
-      const res = patt.test(names);
-
-      if (res) {
-        tmpArray.push(orders[i]);
-      }
-    }
-    setFilterOrders(tmpArray);
+    /* setFilterOrders(tmpArray); */
   };
 
   return !isLoading ? (
@@ -51,10 +46,7 @@ export const Orders = ({ navigation }) => {
           />
         </View>
         <View style={styles.container}>
-          <ContainerCards
-            orders={filterOrders && filterOrders}
-            navigation={navigation}
-          />
+          <ContainerCards orders={orders} navigation={navigation} />
         </View>
       </ScrollView>
     </SafeAreaView>
