@@ -9,3 +9,7 @@ export * from "./OrderCard";
 export * from "./Badge";
 export * from "./Loader";
 export * from "./SearchInput";
+export * from "./ContainerFoodCards";
+export * from "./FoodCard";
+export * from "./HeaderButton";
+export * from "./InputForm";

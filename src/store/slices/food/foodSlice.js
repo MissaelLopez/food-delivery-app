@@ -12,7 +12,7 @@ export const foodSlice = createSlice({
     },
     setFoods: (state, action) => {
       state.isLoading = false;
-      state.foods = action.payload;
+      state.foods = action.payload.foods;
     },
   },
 });
