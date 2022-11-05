@@ -4,47 +4,23 @@ import {
   ScreenStyles as styles,
   ComponentsStyles as componentsStyles,
 } from "../../styles";
-import Feather from "react-native-vector-icons/Feather";
-import { useSelector } from "react-redux";
-import { useState } from "react";
+import { Feather } from "react-native-vector-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getOrders } from "../../store/slices/orders/thunks";
 
 export const Orders = ({ navigation }) => {
+  const { user } = useSelector((state) => state.user);
   const { orders, isLoading } = useSelector((state) => state.orders);
-  const [filterOrders, setFilterOrders] = useState(orders);
+  const dispatch = useDispatch();
 
-  const formatText = (word) => {
-    const tmp = word.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    return tmp.toLowerCase();
-  };
-
-  const handleChange = (text) => {
-    const foods = orders.map((order) => {
-      return order.foods;
-    });
-
-    const searchText = formatText(text);
-    const tmpArray = [];
-    const limit = foods.length;
-
-    /* setFilterOrders(tmpArray); */
-  };
+  useEffect(() => {
+    dispatch(getOrders(user.user));
+  }, []);
 
   return !isLoading ? (
     <SafeAreaView>
       <ScrollView>
-        <View style={componentsStyles.searchInput}>
-          <Feather
-            name="search"
-            size={20}
-            color="#c6c6c6"
-            style={{ marginRight: 5, marginTop: 5 }}
-          />
-          <TextInput
-            placeholder="Buscar..."
-            onChangeText={(text) => handleChange(text)}
-            autoCapitalize="none"
-          />
-        </View>
         <View style={styles.container}>
           <ContainerCards orders={orders} navigation={navigation} />
         </View>

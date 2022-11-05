@@ -1,6 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Login, Register } from "../screens";
-import { Food } from "../screens/foods";
+import { Login, NewFood, Register } from "../screens";
 import OrderDetail from "../screens/restaurants/OrderDetail";
 import { DrawerNavigation } from "./DrawerNavigation";
 
@@ -16,6 +15,18 @@ export const StackNavigation = () => {
         component={OrderDetail}
         name="OrderDetail"
         options={{ headerShown: true, title: "Detalles del pedido" }}
+      />
+      <Stack.Screen
+        component={NewFood}
+        name="newFood"
+        options={{
+          headerTintColor: "#fff",
+          headerShown: true,
+          title: "Nuevo Platillo",
+          headerStyle: {
+            backgroundColor: "#f16667",
+          },
+        }}
       />
     </Stack.Navigator>
   );

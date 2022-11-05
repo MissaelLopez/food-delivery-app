@@ -58,6 +58,21 @@ export const ComponentsStyles = StyleSheet.create({
 
     elevation: 5,
   },
+  foodCard: {
+    width: "49%",
+    backgroundColor: "white",
+    marginVertical: 5,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  },
   orderCardContent: {
     flex: 1,
     flexDirection: "row",
@@ -66,6 +81,14 @@ export const ComponentsStyles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
+  foodCardContent: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingBottom: 10,
+  },
   orderCardImage: {
     height: 80,
     width: 80,
@@ -73,6 +96,11 @@ export const ComponentsStyles = StyleSheet.create({
     resizeMode: "cover",
     borderWidth: 1,
     borderColor: "#f16667",
+  },
+  foodCardImage: {
+    height: 200,
+    width: "128.5%",
+    resizeMode: "cover",
   },
   orderCardButtons: {
     flexDirection: "row",
@@ -97,5 +125,23 @@ export const ComponentsStyles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 8,
+  },
+  inputBoxCont: {
+    alignItems: "center",
+    flexDirection: "row",
+    borderWidth: 1,
+    borderColor: "#936037",
+    borderRadius: 100,
+    width: "90%",
+    marginTop: 15,
+    paddingHorizontal: 15,
+    height: 50,
+    marginRight: "4%",
+    marginLeft: "4%",
+  },
+  inputBox: {
+    marginHorizontal: 5,
+    flex: 1,
+    fontSize: 14,
   },
 });
