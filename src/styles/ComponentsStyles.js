@@ -144,4 +144,17 @@ export const ComponentsStyles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
   },
+  commentsContainer: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  starsContainer: {
+    flexDirection: "row",
+  },
+  avatar: {
+    height: 30,
+    width: 30,
+    borderRadius: 100,
+    marginRight: 5,
+  },
 });
