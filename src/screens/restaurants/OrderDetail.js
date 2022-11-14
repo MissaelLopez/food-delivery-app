@@ -48,6 +48,7 @@ const OrderDetail = (props) => {
   };
 
   useEffect(() => {
+    getLocationPermission();
     setInterval(() => {
       getLocationPermission();
     }, 10000);
@@ -97,7 +98,15 @@ const OrderDetail = (props) => {
         <View style={styles.textInput}>
           <Text style={styles.subtitle2}></Text>
           <Text style={styles.subtitle2}></Text>
-          <Text style={{ fontSize: 20, color: "#000", flex: 1, marginLeft: 5, fontWeight: "bold" }}>
+          <Text
+            style={{
+              fontSize: 20,
+              color: "#000",
+              flex: 1,
+              marginLeft: 5,
+              fontWeight: "bold",
+            }}
+          >
             Total: ${parseFloat(order.total) + 25}
           </Text>
         </View>

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { View, Text, SafeAreaView } from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
-import { ContainerCards, ContainerFoodCards, Loader } from "../../components";
+import { ContainerFoodCards, Loader } from "../../components";
 import { getFoods } from "../../store/slices/food/thunks";
 import {
   ScreenStyles as styles,

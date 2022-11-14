@@ -22,6 +22,7 @@ export const NewFood = ({ navigation }) => {
   const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [food, setFood] = useState({
+    id: Math.floor(Date.now() / 1000),
     name: "",
     description: "",
     price: "",
@@ -74,13 +75,7 @@ export const NewFood = ({ navigation }) => {
       return Alert.alert("Debes seleccionar una categoria para el platillo");
     }
 
-    set(
-      ref(
-        db,
-        `db/restaurants/${user.user}/foods/${Math.floor(Date.now() / 1000)}`
-      ),
-      food
-    )
+    set(ref(db, `db/restaurants/${user.user}/foods/${food.id}`), food)
       .then(() => {
         Alert.alert("Platillo guardado satisfactoriamente");
         dispatch(getFoods(user.user));
