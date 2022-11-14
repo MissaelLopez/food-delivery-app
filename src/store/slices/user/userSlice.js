@@ -11,9 +11,9 @@ export const userSlice = createSlice({
       state.isLoading = true;
     },
     setAuthUser: (state, action) => {
-      const { email, id, token, type } = action.payload;
+      const { email, id, user, token, type } = action.payload;
       state.isLoading = false;
-      state.user = { email, id, token, type };
+      state.user = { email, id, user, token, type };
     },
   },
 });

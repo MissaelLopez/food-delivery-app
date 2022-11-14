@@ -1,13 +1,18 @@
+import { View } from "react-native";
 import { useSelector } from "react-redux";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import { CustomDrawer } from "../components";
-import { Home } from "../screens";
+import { Ionicons, MaterialIcons } from "react-native-vector-icons";
+import { CustomDrawer, HeaderButton } from "../components";
+import { Foods, Home, Orders } from "../screens";
 
 const Drawer = createDrawerNavigator();
 
 export const DrawerNavigation = ({ navigation }) => {
   const { user } = useSelector((state) => state.user);
+
+  const handlePress = () => {
+    navigation.navigate("newFood");
+  };
 
   return (
     <Drawer.Navigator
@@ -51,15 +56,30 @@ export const DrawerNavigation = ({ navigation }) => {
       {user.type === "restaurant" && (
         <>
           <Drawer.Screen
-            name="Mis Platillos"
-            component={Home}
+            name="Pedidos"
+            component={Orders}
             options={{
+              drawerIcon: ({ color }) => (
+                <MaterialIcons name="delivery-dining" size={22} color={color} />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="Platillos"
+            component={Foods}
+            options={{
+              title: "Mis Platillos",
               drawerIcon: ({ color }) => (
                 <Ionicons
                   name="ios-fast-food-outline"
                   size={22}
                   color={color}
                 />
+              ),
+              headerRight: () => (
+                <View style={{ width: "50%" }}>
+                  <HeaderButton onPress={handlePress} />
+                </View>
               ),
             }}
           />
