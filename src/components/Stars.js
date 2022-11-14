@@ -15,7 +15,7 @@ const Stars = ({ number }) => {
     );
   }
 
-  if (number === 1) {
+  if (number <= 1) {
     return (
       <View style={styles.starsContainer}>
         <FontAwesome name="star" color="#f16667" size={14} />
@@ -27,7 +27,7 @@ const Stars = ({ number }) => {
     );
   }
 
-  if (number === 2) {
+  if (number <= 2) {
     return (
       <View style={styles.starsContainer}>
         <FontAwesome name="star" color="#f16667" size={14} />
@@ -39,7 +39,7 @@ const Stars = ({ number }) => {
     );
   }
 
-  if (number === 3) {
+  if (number <= 3) {
     return (
       <View style={styles.starsContainer}>
         <FontAwesome name="star" color="#f16667" size={14} />
@@ -51,7 +51,7 @@ const Stars = ({ number }) => {
     );
   }
 
-  if (number === 4) {
+  if (number <= 4) {
     return (
       <View style={styles.starsContainer}>
         <FontAwesome name="star" color="#f16667" size={14} />
@@ -63,7 +63,7 @@ const Stars = ({ number }) => {
     );
   }
 
-  if (number === 5) {
+  if (number <= 5) {
     return (
       <View style={styles.starsContainer}>
         <FontAwesome name="star" color="#f16667" size={14} />

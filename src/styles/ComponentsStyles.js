@@ -151,6 +151,26 @@ export const ComponentsStyles = StyleSheet.create({
   starsContainer: {
     flexDirection: "row",
   },
+  containerFoodPicture: {
+    width: "90%",
+    height: 220,
+    alignSelf: "center",
+    marginVertical: 10,
+  },
+  foodName: {
+    fontSize: 22,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  foodDescription: {
+    textAlign: "justify",
+    marginHorizontal: 20,
+  },
+  foodPicture: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
+  },
   avatar: {
     height: 30,
     width: 30,
