@@ -5,6 +5,8 @@ import { View, Image, ScrollView, Alert } from "react-native";
 import { LoginStyles as styles } from "../styles";
 import { Subtitle, Title, InputLabel, Button, Link } from "../components";
 import { setAuthUser } from "../store/slices/user/userSlice";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config";
 
 export const Register = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -53,6 +55,15 @@ export const Register = ({ navigation }) => {
     }
 
     try {
+      createUserWithEmailAndPassword(auth, userData.email, userData.password)
+        .then((userCredentials) => {
+          const user = userCredentials.user;
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage);
+        });
       const { data, status } = await postAPI.post("/clients", {
         name: userData.name,
         lastname: userData.lastname,
