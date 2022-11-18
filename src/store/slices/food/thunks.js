@@ -1,6 +1,6 @@
-import { onValue, ref, set } from "firebase/database";
+import { onValue, ref } from "firebase/database";
 import { db } from "../../../../config";
-import { setFood, setFoods, setRatings, startLoadingFood } from "./foodSlice";
+import { setFood, setFoods, startLoadingFood } from "./foodSlice";
 
 export const getFoods = (restaurantId) => {
   return async (dispatch) => {

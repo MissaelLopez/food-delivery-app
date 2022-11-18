@@ -3,13 +3,24 @@ import { createSlice } from "@reduxjs/toolkit";
 export const restaurantSlice = createSlice({
   name: "restaurant",
   initialState: {
-    counter: 10,
+    restaurants: [],
+    restaurant: {},
+    isLoading: false,
   },
   reducers: {
-    increment: (state) => {
-      state.counter += 1;
+    startLoadingRestaurants: (state) => {
+      state.isLoading = true;
+    },
+    setRestaurants: (state, action) => {
+      state.isLoading = false;
+      state.restaurants = action.payload.restaurants;
+    },
+    setRestaurant: (state, action) => {
+      state.isLoading = false;
+      state.restaurant = action.payload.restaurant;
     },
   },
 });
 
-export const { increment } = restaurantSlice.actions;
+export const { setRestaurants, startLoadingRestaurants, setRestaurant } =
+  restaurantSlice.actions;

@@ -10,7 +10,7 @@ import { setFoods } from "../store/slices/food";
 export const Login = ({ navigation }) => {
   const dispatch = useDispatch();
   const [user, setUser] = useState({
-    email: "donkamaron@gmail.com",
+    email: "missaelnj8@gmail.com",
     password: "mbLL1110*",
   });
 

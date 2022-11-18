@@ -15,3 +15,5 @@ export * from "./HeaderButton";
 export * from "./InputForm";
 export * from "./Comments";
 export * from "./Stars";
+export * from "./ContainerRestaurantsCards";
+export * from "./RestaurantCard";

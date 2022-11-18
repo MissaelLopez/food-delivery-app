@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { View, Text, SafeAreaView } from "react-native";
-import { ScrollView, TextInput } from "react-native-gesture-handler";
+import { View, SafeAreaView, ScrollView, TextInput } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { ContainerFoodCards, Loader } from "../../components";
 import { getFoods } from "../../store/slices/food/thunks";

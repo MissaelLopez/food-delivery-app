@@ -4,6 +4,7 @@ export const foodSlice = createSlice({
   name: "food",
   initialState: {
     foods: [],
+    allFoods: [],
     food: {},
     isLoading: false,
   },
@@ -19,7 +20,12 @@ export const foodSlice = createSlice({
       state.food = action.payload.food;
       state.isLoading = false;
     },
+    setAllFoods: (state, action) => {
+      state.isLoading = false;
+      state.foods = action.payload.allFoods;
+    },
   },
 });
 
-export const { startLoadingFood, setFoods, setFood } = foodSlice.actions;
+export const { startLoadingFood, setFoods, setAllFoods, setFood } =
+  foodSlice.actions;

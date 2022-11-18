@@ -1,12 +1,11 @@
-import { View, ScrollView, SafeAreaView, TextInput } from "react-native";
+import { View, ScrollView, SafeAreaView } from "react-native";
 import { ContainerCards, Loader } from "../../components";
 import {
   ScreenStyles as styles,
   ComponentsStyles as componentsStyles,
 } from "../../styles";
-import { Feather } from "react-native-vector-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getOrders } from "../../store/slices/orders/thunks";
 
 export const Orders = ({ navigation }) => {
